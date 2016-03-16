@@ -6,17 +6,17 @@ import javax.tools.*;
 
 public class CompileChecker {
 
-    public boolean Compile(String[] fileNames) {
+    public boolean Compile(String fileName) {
         JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
-        DiagnosticCollector<JavaFileObject> diagnostics = new DiagnosticCollector<JavaFileObject>();
-        StandardJavaFileManager fileManager = compiler.getStandardFileManager(diagnostics, null, null);
-        Iterable<? extends JavaFileObject> compilationUnits = fileManager.getJavaFileObjectsFromStrings(java.util.Arrays.asList(fileNames));
-        JavaCompiler.CompilationTask task = compiler.getTask(null, fileManager, diagnostics, null,
-                null, compilationUnits);
-        return task.call();
+        int compilationResult = compiler.run(null, null, null, fileName);
+        if(compilationResult == 0)
+            return true;
+        else
+            return false;
+
     }
 
     public boolean EnsureFileIsJava(File file) {
-        return (file.getName().equals("sampleFilePath.java"));
+        return (file.getName().contains(".java"));
     }
 }
