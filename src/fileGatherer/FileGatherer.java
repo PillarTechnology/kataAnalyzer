@@ -10,7 +10,7 @@ public class FileGatherer {
     public List<File> filterJavaFiles(List<File> fileList) {
         return fileList.
                 stream().
-                filter(file -> file.getName().contains(".java")).
+                filter(file -> file.getName().endsWith(".java")).
                 collect(Collectors.toCollection(ArrayList::new));
     }
 
