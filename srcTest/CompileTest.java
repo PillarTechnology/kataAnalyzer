@@ -24,4 +24,12 @@ public class CompileTest {
         File file = new File(filePath);
         assertTrue(compileChecker.EnsureFileIsJava(file));
     }
+
+    @Test
+    public void JavaFileCanCompileInRuntime() {
+        CompileChecker compileChecker = new CompileChecker();
+        System.out.print(System.getProperty("user.dir"));
+        String[] stringArray = new String[] {System.getProperty("user.dir") + "/srcTest/CompileTest.java"};
+        assertTrue(compileChecker.Compile(stringArray));
+    }
 }

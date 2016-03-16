@@ -6,14 +6,14 @@ import javax.tools.*;
 
 public class CompileChecker {
 
-    public void Compile(String[] fileNames) {
+    public boolean Compile(String[] fileNames) {
         JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
         DiagnosticCollector<JavaFileObject> diagnostics = new DiagnosticCollector<JavaFileObject>();
         StandardJavaFileManager fileManager = compiler.getStandardFileManager(diagnostics, null, null);
         Iterable<? extends JavaFileObject> compilationUnits = fileManager.getJavaFileObjectsFromStrings(java.util.Arrays.asList(fileNames));
         JavaCompiler.CompilationTask task = compiler.getTask(null, fileManager, diagnostics, null,
                 null, compilationUnits);
-        boolean success = task.call();
+        return task.call();
     }
 
     public boolean EnsureFileIsJava(File file) {
