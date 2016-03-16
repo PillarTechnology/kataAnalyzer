@@ -18,19 +18,15 @@ public class JUnitValidator implements ITestFileVaidator {
             while(scan.hasNextLine()){
                 String line = scan.nextLine();
                 if(line.contains("org.junit.Test;")){
-                    System.out.println(line);
                     hasTestImport = true;
                 }
                 if(line.contains("@Test")){
-                    System.out.println(line);
                     hasTestAnnotation = true;
                 }
                 if(line.contains("org.junit.Assert.")){
-                    System.out.println(line);
                     hasAssertImport = true;
                 }
                 if(line.contains("assert")){
-                    System.out.println(line);
                     hasAssertStatements = true;
                 }
             }

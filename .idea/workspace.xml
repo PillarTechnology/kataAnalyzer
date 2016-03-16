@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="27f6d266-64ca-4e42-93e2-d23094b49e17" name="Default" comment="Added a Validator for JUnit files that searches for test annotations and asserts.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testResources/JavaTestWithAsserts.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testResources/JavaTestWithTestAnnotation.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testResources/JavaTestWithTestImport.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/testResources/AnActualJavaTest.java" afterPath="$PROJECT_DIR$/testResources/JavaTestWithNoAsserts.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/testResources/AnotherActualJavaTest.java" afterPath="$PROJECT_DIR$/testResources/JavaTestThatIsProperlyWritten.java" />
+    <list default="true" id="27f6d266-64ca-4e42-93e2-d23094b49e17" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fileGatherer/JUnitValidator.java" afterPath="$PROJECT_DIR$/src/fileGatherer/JUnitValidator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/srcTest/fileGatherer/FileGathererTest.java" afterPath="$PROJECT_DIR$/srcTest/fileGatherer/FileGathererTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/srcTest/fileGatherer/JUnitValidatorTests.java" afterPath="$PROJECT_DIR$/srcTest/fileGatherer/JUnitValidatorTests.java" />
     </list>
     <ignored path="kataAnalyzer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JUnitValidator.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="JUnitValidator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/fileGatherer/JUnitValidator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="37" column="54" selection-start-line="37" selection-start-column="54" selection-end-line="37" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.82135075">
+              <caret line="29" column="31" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -68,7 +61,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JavaTestThatIsProperlyWritten.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="JavaTestThatIsProperlyWritten.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testResources/JavaTestThatIsProperlyWritten.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
@@ -184,12 +177,12 @@
         <option value="$PROJECT_DIR$/testResources/JavaTestWithAssertImport.java" />
         <option value="$PROJECT_DIR$/srcTest/fileGatherer/JUnitValidatorTests.java" />
         <option value="$PROJECT_DIR$/srcTest/fileGatherer/FileGathererTest.java" />
-        <option value="$PROJECT_DIR$/src/fileGatherer/JUnitValidator.java" />
         <option value="$PROJECT_DIR$/testResources/JavaTestThatIsProperlyWritten.java" />
         <option value="$PROJECT_DIR$/testResources/JavaTestWithAsserts.java" />
         <option value="$PROJECT_DIR$/testResources/JavaTestWithNoAsserts.java" />
         <option value="$PROJECT_DIR$/testResources/JavaTestWithTestAnnotation.java" />
         <option value="$PROJECT_DIR$/testResources/JavaTestWithTestImport.java" />
+        <option value="$PROJECT_DIR$/src/fileGatherer/JUnitValidator.java" />
       </list>
     </option>
   </component>
@@ -1026,7 +1019,7 @@
       <workItem from="1458148815939" duration="4111000" />
       <workItem from="1458153380873" duration="278000" />
       <workItem from="1458153662336" duration="2922000" />
-      <workItem from="1458157212305" duration="4429000" />
+      <workItem from="1458157212305" duration="4514000" />
     </task>
     <task id="LOCAL-00001" summary="Added some basic structures and .gitignore">
       <created>1458138506662</created>
@@ -1052,13 +1045,16 @@
       <option name="project" value="LOCAL" />
       <updated>1458149542371</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added a Validator for JUnit files that searches for test annotations and asserts.">
+      <created>1458161655717</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1458161655717</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="JUnitValidatorTests - 2016.03.16 at 16h 13m 09s.xml">
-      <configuration name="JUnitValidatorTests" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="JUnitValidatorTests - 2016.03.16 at 16h 18m 46s.xml">
       <configuration name="JUnitValidatorTests" configurationId="JUnit" />
     </history-entry>
@@ -1086,25 +1082,28 @@
     <history-entry file="JUnitValidatorTests - 2016.03.16 at 16h 42m 45s.xml">
       <configuration name="JUnitValidatorTests" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="JUnitValidatorTests - 2016.03.16 at 16h 55m 18s.xml">
+      <configuration name="JUnitValidatorTests" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18620000" />
+    <option name="totallyTimeSpent" value="18705000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32765958" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32765958" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30921987" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30921987" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33049646" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25250357" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25250357" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32907802" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1272,9 +1271,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1513,16 +1510,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/fileGatherer/JUnitValidator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="54" selection-start-line="37" selection-start-column="54" selection-end-line="37" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testResources/JavaTestWithAsserts.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1559,9 +1546,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1571,6 +1556,16 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="2" selection-end-line="21" selection-end-column="3" />
           <folding>
             <element signature="e#0#980#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fileGatherer/JUnitValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.82135075">
+          <caret line="29" column="31" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
