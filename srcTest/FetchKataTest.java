@@ -35,7 +35,10 @@ public class FetchKataTest {
     @Test
     public void itWillCleanUpLocalRepoWhenCalled() {
         FetchKata fetchKata = new FetchKata();
+        fetchKata.cloneRepository("https://github.com/PillarTechnology/kataAnalyzer");
         fetchKata.cleanup();
+        File newFile = new File(fetchKata.localDirectory);
+        assertTrue(newFile.exists() == false);
     }
 
     @Test
