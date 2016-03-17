@@ -36,7 +36,7 @@ public class CompileTest {
             if(listOfFiles[i].getName().contains(".java"))
                 arguments.add(listOfFiles[i].getPath());
         }
-        boolean canCompile = compileChecker.JavaCCompiled(arguments.toArray(new String[arguments.size()]));
+        boolean canCompile = compileChecker.CreateClassFiles(arguments.toArray(new String[arguments.size()]));
         assertTrue(canCompile);
     }
 }
