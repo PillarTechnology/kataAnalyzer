@@ -1,7 +1,9 @@
 import java.io.File;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 /**
  * Created by stevenroderick on 3/16/16.
  */
@@ -24,16 +26,17 @@ public class CompileTest {
     }
 
     @Test
-    public void JavaFileCanCompileInRuntime() {
+    public void TestRunJavacInApp() {
         CompileChecker compileChecker = new CompileChecker();
-        System.out.print(System.getProperty("user.dir"));
-        String[] stringArray = new String[] {};
-        assertTrue(compileChecker.Compile(System.getProperty("user.dir") + "/srcTest/CompileTest.java"));
-    }
-
-    @Test
-    public void JavaFileIsBad() {
-        CompileChecker compileChecker = new CompileChecker();
-        assertFalse(compileChecker.Compile(System.getProperty("user.dir") + "/srcTest/README.md2"));
+        List<String> arguments = new ArrayList<>();
+        String directory = System.getProperty("user.dir") + "/src";
+        File folder = new File(directory);
+        File[] listOfFiles = folder.listFiles();
+        for(int i = 0; i < listOfFiles.length; i++) {
+            if(listOfFiles[i].getName().contains(".java"))
+                arguments.add(listOfFiles[i].getPath());
+        }
+        boolean canCompile = compileChecker.JavaCCompiled(arguments.toArray(new String[arguments.size()]));
+        assertTrue(canCompile);
     }
 }
