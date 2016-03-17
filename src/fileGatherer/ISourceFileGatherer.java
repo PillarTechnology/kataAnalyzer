@@ -7,6 +7,6 @@ import java.util.HashMap;
 
 public interface ISourceFileGatherer {
 
-    HashMap<SourceType, List<File>> Gather(Path sourcePath);
+    HashMap<SourceType, List<File>> Gather(String sourcePath);
 
 }

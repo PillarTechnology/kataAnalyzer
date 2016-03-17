@@ -26,7 +26,7 @@ public class JUnitValidator implements ITestFileValidator {
                 if(line.contains("org.junit.Assert.")){
                     hasAssertImport = true;
                 }
-                if(line.contains("assert")){
+                if(line.trim().startsWith("assert")){
                     hasAssertStatements = true;
                 }
             }

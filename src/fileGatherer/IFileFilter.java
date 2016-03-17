@@ -1,7 +1,11 @@
 package fileGatherer;
 
-/**
- * Created by dnixon on 3/17/16.
- */
+
+import java.io.File;
+import java.util.List;
+
 public interface IFileFilter {
+
+    List<File> filterFiles(List<File> fileList);
+
 }

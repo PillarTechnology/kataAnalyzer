@@ -44,6 +44,14 @@ public class JUnitValidatorTests {
     }
 
     @Test
+    public void shouldNotIndicateFileIsValidWhenAssertionIsNotTheFirstStatementOnTheLine() throws Exception {
+        final File fileUnderTest = new File(TestHelper.TEST_FILE_DIR, "JavaTestWithNoAsserts.java");
+
+        boolean isFileValid = junitValidator.validateFile(fileUnderTest);
+        assertFalse(isFileValid);
+    }
+
+    @Test
     public void shouldNotIndicateFileIsValidWhenFileDoesNotExist() throws Exception {
         final File fileUnderTest = new File("");
 

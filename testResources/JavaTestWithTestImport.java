@@ -1,5 +1,5 @@
-//import org.junit.Test;
-//
-//public class AnActualJavaTest {
-//
-//}
+import org.junit.Test;
+
+public class AnActualJavaTest {
+
+}

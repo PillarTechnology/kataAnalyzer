@@ -24,28 +24,16 @@ public class JavaSourceSorterTest {
     @Test
     public void shouldReturnSortedTestFiles() {
         List<File> allJavaFilesFromTestDirectory = TestHelper.getAllJavaFilesFromTestDirectory();
-
-        final File aJavaFile1 = new File(TestHelper.TEST_FILE_DIR, "JavaTestThatIsProperlyWritten.java");
-        final File aJavaFile2 = new File(TestHelper.TEST_FILE_DIR, "JavaTestWithAssertsButNoTestImport.java");
-        final File aJavaFile3 = new File(TestHelper.TEST_FILE_DIR, "JavaTestWithNoAsserts.java");
-        final File aJavaFile4 = new File(TestHelper.TEST_FILE_DIR, "JavaTestWithTestAnnotation.java");
-        final File aJavaFile5 = new File(TestHelper.TEST_FILE_DIR, "JavaTestWithTestImport.java");
-        final File aJavaFile6 = new File(TestHelper.TEST_FILE_DIR, "NotAJavaTestClass.java");
-        List<File> expectedTestFiles = Collections.singletonList(aJavaFile1);
-        List<File> expectedNonTestFiles = asList(
-                aJavaFile2,
-                aJavaFile3,
-                aJavaFile4,
-                aJavaFile5,
-                aJavaFile6);
+        List<File> expectedTestFiles = TestHelper.getAllTestJavaFilesFromTestDirectory();
+        List<File> expectedNonTestFiles = TestHelper.getAllNonTestJavaFilesFromTestDirectory();
 
         MockTestFileValidator mockValidator = new MockTestFileValidator();
-        mockValidator.setValueToReturnFromValidate(aJavaFile1, true);
-        mockValidator.setValueToReturnFromValidate(aJavaFile2, false);
-        mockValidator.setValueToReturnFromValidate(aJavaFile3, false);
-        mockValidator.setValueToReturnFromValidate(aJavaFile4, false);
-        mockValidator.setValueToReturnFromValidate(aJavaFile5, false);
-        mockValidator.setValueToReturnFromValidate(aJavaFile6, false);
+        for (File file: expectedTestFiles) {
+            mockValidator.setValueToReturnFromValidate(file, true);
+        }
+        for (File file: expectedNonTestFiles) {
+            mockValidator.setValueToReturnFromValidate(file, false);
+        }
 
         JavaSourceSorter javaSourceSorter = new JavaSourceSorter(mockValidator);
 

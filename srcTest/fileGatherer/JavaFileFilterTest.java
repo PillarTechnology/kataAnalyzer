@@ -31,7 +31,7 @@ public class JavaFileFilterTest {
                 aJavaFile6);
         JavaFileFilter gatherer = new JavaFileFilter();
 
-        List<File> listOfFilesReturned = gatherer.filterJavaFiles(listOfJavaFiles);
+        List<File> listOfFilesReturned = gatherer.filterFiles(listOfJavaFiles);
         assertEquals(expectedFiles, listOfFilesReturned);
     }
 }

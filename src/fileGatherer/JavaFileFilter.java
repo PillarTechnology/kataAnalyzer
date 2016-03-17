@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class JavaFileFilter {
+public class JavaFileFilter implements IFileFilter {
 
-    public List<File> filterJavaFiles(List<File> fileList) {
+    public List<File> filterFiles(List<File> fileList) {
         return fileList.
                 stream().
                 filter(file -> file.getName().endsWith(".java")).
