@@ -1,6 +1,9 @@
 .idea/*
 .idea/vcs.xml
 .idea/workspace.xml
+out/
+*.class
+*.jar
 .DS_Store
 logs
 project/project
