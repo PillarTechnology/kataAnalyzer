@@ -14,7 +14,7 @@
 //        final File aJavaFile3 = new File(PATH_TO_TEST_FILES,"NotAJavaTestClass.java");
 //        List<File> expectedFiles = Arrays.asList(aJavaFile1, aJavaFile2, aJavaFile3);
 //
-//        FileGatherer gatherer = new FileGatherer();
+//        JavaFileFilter gatherer = new JavaFileFilter();
 //
 //        List<File> listOfFilesReturned = gatherer.filterJavaFiles(listOfJavaFiles);
 //        assertEquals(expectedFiles, listOfFilesReturned);

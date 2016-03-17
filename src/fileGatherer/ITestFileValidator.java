@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.List;
 
 
-public interface ITestFileVaidator {
+public interface ITestFileValidator {
 
     boolean validateFile(File file);
 

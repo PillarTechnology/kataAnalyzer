@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 
-public class JUnitValidator implements ITestFileVaidator {
+public class JUnitValidator implements ITestFileValidator {
 
     public boolean validateFile(File file)
     {

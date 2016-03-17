@@ -1,6 +1,6 @@
 package fileGatherer;
 
 public enum SourceType {
-    SourceCode,
-    TestCode
+    NOT_TEST_CODE,
+    TEST_CODE
 }

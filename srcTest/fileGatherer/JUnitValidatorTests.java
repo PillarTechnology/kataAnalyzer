@@ -4,7 +4,7 @@ import java.io.File;
 
 import org.junit.Before;
 import org.junit.Test;
-import testUtils.TestConstants;
+import testUtils.TestHelper;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -21,7 +21,7 @@ public class JUnitValidatorTests {
 
     @Test
     public void shouldIndicateFileIsValidWhenProperImportsAreWithinTheTestFile() throws Exception {
-        final File fileUnderTest = new File(TestConstants.TEST_FILE_DIR, "JavaTestThatIsProperlyWritten.java");
+        final File fileUnderTest = new File(TestHelper.TEST_FILE_DIR, "JavaTestThatIsProperlyWritten.java");
 
         boolean isFileValid = junitValidator.validateFile(fileUnderTest);
         assertTrue(isFileValid);
@@ -29,7 +29,7 @@ public class JUnitValidatorTests {
 
     @Test
     public void returnsFalseWhenThereAreNoTestAnnotations(){
-        final File fileUnderTest = new File(TestConstants.TEST_FILE_DIR, "JavaTestWithAsserts.java");
+        final File fileUnderTest = new File(TestHelper.TEST_FILE_DIR, "JavaTestWithAssertsButNoTestImport.java");
 
         boolean isFileValid = junitValidator.validateFile(fileUnderTest);
         assertFalse(isFileValid);
@@ -37,7 +37,7 @@ public class JUnitValidatorTests {
 
     @Test
     public void shouldNotIndicateFileIsValidWhenProperImportsDoNotExist() throws Exception {
-        final File fileUnderTest = new File(TestConstants.TEST_FILE_DIR, "NotAJavaTestClass.java");
+        final File fileUnderTest = new File(TestHelper.TEST_FILE_DIR, "NotAJavaTestClass.java");
 
         boolean isFileValid = junitValidator.validateFile(fileUnderTest);
         assertFalse(isFileValid);
