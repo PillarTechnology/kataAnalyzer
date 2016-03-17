@@ -12,7 +12,6 @@ public class UnitTestRunner {
 
         try {
             String command = "java -cp /Library/JUNIT/junit-4.12.jar:/Library/JUNIT/hamcrest-core-1.3.jar:./out/test/kataAnalyzer org.junit.runner.JUnitCore " + filename;
-            System.out.println(command);
             Process process = runtime.exec(command);
             process.waitFor();
 
@@ -21,7 +20,6 @@ public class UnitTestRunner {
                 out = consumeInputStream(process.getErrorStream());
             }
 
-            System.out.println("out: " + out);
             return out;
         }
         catch(IOException ioe){

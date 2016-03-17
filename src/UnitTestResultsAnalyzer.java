@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
  * Created by jwinters on 3/16/16.
  */
 
-public class UnitTestAnalyzer {
+public class UnitTestResultsAnalyzer {
 
     public String analyzeResults(String unitTestResults) {
 

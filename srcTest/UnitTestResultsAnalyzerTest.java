@@ -6,9 +6,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
 
-public class UnitTestAnalyzerTest {
+public class UnitTestResultsAnalyzerTest {
 
-    UnitTestAnalyzer testAnalyzer;
+    UnitTestResultsAnalyzer testResultsAnalyzer;
 
     private final String SUCCESS_STRING = "JUnit version 4.12\n" +
             "..\n" +
@@ -63,21 +63,21 @@ public class UnitTestAnalyzerTest {
 
     @Before
     public void createUnitTestAnalyzer() {
-        testAnalyzer = new UnitTestAnalyzer();
+        testResultsAnalyzer = new UnitTestResultsAnalyzer();
     }
 
     @Test
     public void itReturnsSuccessWhenAllTestsPass() {
-        Assert.assertEquals( "Success", testAnalyzer.analyzeResults(SUCCESS_STRING) );
+        Assert.assertEquals( "Success", testResultsAnalyzer.analyzeResults(SUCCESS_STRING) );
     }
 
     @Test
     public void itReturnsFailureWhenAtLeastOneTestFails() {
-        Assert.assertEquals( "Failure", testAnalyzer.analyzeResults(FAILURE_STRING) );
+        Assert.assertEquals( "Failure", testResultsAnalyzer.analyzeResults(FAILURE_STRING) );
     }
 
     @Test
     public void itReturnsFailureWhenTestsDoNotRun() {
-        Assert.assertEquals( "Failure", testAnalyzer.analyzeResults(UNKNOWN_STRING) );
+        Assert.assertEquals( "Failure", testResultsAnalyzer.analyzeResults(UNKNOWN_STRING) );
     }
 }
