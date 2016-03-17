@@ -23,11 +23,13 @@ public class CompileChecker {
         }
         System.out.println(writtenCommands);
         try {
-            Process proc =  Runtime.getRuntime().exec("javac " + writtenCommands);
+            File runtimeDir = new File(System.getProperty("user.dir") + "/RuntimeCompile");
+            boolean newDir = runtimeDir.mkdir();
+            Process proc =  Runtime.getRuntime().exec("javac -d " + runtimeDir.getAbsolutePath() + " " + writtenCommands);
             int exitVal = proc.waitFor();
             System.out.println("Exit Val: " + exitVal);
             if(exitVal == 0) {
-                return CreateJARFile(GetClassFiles());
+                return true;
             }
             else
                 return false;
@@ -40,13 +42,14 @@ public class CompileChecker {
         }
     }
 
-    private List<String> GetClassFiles() {
+    public List<String> GetClassFiles() {
         List<String> classes = new ArrayList<>();
-        String directory = System.getProperty("user.dir");
+        File runtimeDir = new File(System.getProperty("user.dir") + "/RuntimeCompile");
+        String directory = runtimeDir.getAbsolutePath();
         ArrayList<File> listOfFiles = new ArrayList<>();
         SearchFoldersRecursively(directory, listOfFiles);
         for(int i = 0; i < listOfFiles.size(); i++) {
-            if(listOfFiles.get(i).getName().contains(".class"))
+            if(listOfFiles.get(i).getName().endsWith(".class"))
                 classes.add(listOfFiles.get(i).getPath());
         }
         return classes;
@@ -63,7 +66,7 @@ public class CompileChecker {
         }
     }
 
-    private boolean CreateJARFile(List<String> classFiles) {
+    public boolean CreateJARFile(List<String> classFiles) {
         String writtenCommands = "";
         for(int i = 0; i < classFiles.size(); i++) {
             writtenCommands += classFiles.get(i);
