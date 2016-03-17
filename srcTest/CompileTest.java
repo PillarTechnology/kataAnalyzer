@@ -10,23 +10,23 @@ import java.util.List;
 public class CompileTest {
 
     @Test
-    public void EnsureFileIsAJavaFile() {
+    public void ensureFileIsAJavaFile() {
         CompileChecker compileChecker = new CompileChecker();
         String filePath = "Users/User/Desktop/sampleFilePath.java/";
         File file = new File(filePath);
-        assertTrue(compileChecker.EnsureFileIsJava(file));
+        assertTrue(compileChecker.ensureFileIsJava(file));
     }
 
     @Test
-    public void EnsureFileIsAJavaFile2() {
+    public void ensureFileIsAJavaFile2() {
         CompileChecker compileChecker = new CompileChecker();
         String filePath = System.getProperty("user.dir") + "/srcTest/CompileTest.java";
         File file = new File(filePath);
-        assertTrue(compileChecker.EnsureFileIsJava(file));
+        assertTrue(compileChecker.ensureFileIsJava(file));
     }
 
     @Test
-    public void CanUseJavac() {
+    public void canUseJavac() {
         CompileChecker compileChecker = new CompileChecker();
         List<String> arguments = new ArrayList<>();
         String directory = System.getProperty("user.dir") + "/src";
@@ -36,26 +36,26 @@ public class CompileTest {
             if(listOfFiles[i].getName().contains(".java"))
                 arguments.add(listOfFiles[i].getPath());
         }
-        boolean canCompile = compileChecker.CreateClassFiles(arguments.toArray(new String[arguments.size()]));
+        boolean canCompile = compileChecker.createClassFiles(arguments.toArray(new String[arguments.size()]));
         assertTrue(canCompile);
     }
 
     @Test
-    public void GetAllFilesShouldReturnZero() {
+    public void getAllFilesShouldReturnZero() {
         CompileChecker compileChecker = new CompileChecker();
-        List<String> classes = compileChecker.GetClassFiles();
+        List<String> classes = compileChecker.getClassFiles();
         for(int i = 0; i < classes.size(); i++) {
             File file = new File(classes.get(i));
             file.delete();
         }
-        classes = compileChecker.GetClassFiles();
+        classes = compileChecker.getClassFiles();
         assertTrue(classes.size() == 0);
     }
 
     @Test
-    public void EnsureClassFilesAreGenerated() {
+    public void ensureClassFilesAreGenerated() {
         CompileChecker compileChecker = new CompileChecker();
-        List<String> classes = compileChecker.GetClassFiles();
+        List<String> classes = compileChecker.getClassFiles();
         for(int i = 0; i < classes.size(); i++) {
             File file = new File(classes.get(i));
             file.delete();
@@ -68,13 +68,13 @@ public class CompileTest {
             if(listOfFiles[i].getName().contains(".java"))
                 arguments.add(listOfFiles[i].getPath());
         }
-        compileChecker.CreateClassFiles(arguments.toArray(new String[arguments.size()]));
-        classes = compileChecker.GetClassFiles();
+        compileChecker.createClassFiles(arguments.toArray(new String[arguments.size()]));
+        classes = compileChecker.getClassFiles();
         assertTrue(classes.size() != 0);
     }
 
     @Test
-    public void BuildJava() {
+    public void buildJavass() {
         CompileChecker compileChecker = new CompileChecker();
         List<String> arguments = new ArrayList<>();
         String directory = System.getProperty("user.dir") + "/src";
@@ -85,9 +85,9 @@ public class CompileTest {
                 arguments.add(listOfFiles[i].getPath());
         }
         boolean canBuildJar = false;
-        boolean canCompile = compileChecker.CreateClassFiles(arguments.toArray(new String[arguments.size()]));
+        boolean canCompile = compileChecker.createClassFiles(arguments.toArray(new String[arguments.size()]));
         if(canCompile == true) {
-            canBuildJar = compileChecker.CreateJARFile(compileChecker.GetClassFiles());
+            canBuildJar = compileChecker.createJARFile(compileChecker.getClassFiles());
         }
         assertTrue(canBuildJar);
     }

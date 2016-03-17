@@ -5,29 +5,26 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.tools.*;
 
 public class CompileChecker {
 
 
-    public boolean EnsureFileIsJava(File file) {
+    public boolean ensureFileIsJava(File file) {
         return (file.getName().contains(".java"));
     }
 
-    public boolean CreateClassFiles(String[] commands) {
+    public boolean createClassFiles(String[] commands) {
         String writtenCommands = "";
         for(int i = 0; i < commands.length; i++) {
             writtenCommands += commands[i];
             if(i < commands.length)
                 writtenCommands += " ";
         }
-        System.out.println(writtenCommands);
         try {
             File runtimeDir = new File(System.getProperty("user.dir") + "/RuntimeCompile");
             boolean newDir = runtimeDir.mkdir();
             Process proc =  Runtime.getRuntime().exec("javac -d " + runtimeDir.getAbsolutePath() + " " + writtenCommands);
             int exitVal = proc.waitFor();
-            System.out.println("Exit Val: " + exitVal);
             if(exitVal == 0) {
                 return true;
             }
@@ -42,12 +39,12 @@ public class CompileChecker {
         }
     }
 
-    public List<String> GetClassFiles() {
+    public List<String> getClassFiles() {
         List<String> classes = new ArrayList<>();
         File runtimeDir = new File(System.getProperty("user.dir") + "/RuntimeCompile");
         String directory = runtimeDir.getAbsolutePath();
         ArrayList<File> listOfFiles = new ArrayList<>();
-        SearchFoldersRecursively(directory, listOfFiles);
+        searchFoldersRecursively(directory, listOfFiles);
         for(int i = 0; i < listOfFiles.size(); i++) {
             if(listOfFiles.get(i).getName().endsWith(".class"))
                 classes.add(listOfFiles.get(i).getPath());
@@ -55,29 +52,27 @@ public class CompileChecker {
         return classes;
     }
 
-    private void SearchFoldersRecursively(String directoryName, ArrayList<File> files) {
+    private void searchFoldersRecursively(String directoryName, ArrayList<File> files) {
         File directory = new File(directoryName);
         File[] newFoundFiles = directory.listFiles();
         for(int i = 0; i < newFoundFiles.length; i++) {
             if(newFoundFiles[i].isFile())
                 files.add(newFoundFiles[i]);
             else if (newFoundFiles[i].isDirectory())
-                SearchFoldersRecursively(newFoundFiles[i].getAbsolutePath(), files);
+                searchFoldersRecursively(newFoundFiles[i].getAbsolutePath(), files);
         }
     }
 
-    public boolean CreateJARFile(List<String> classFiles) {
+    public boolean createJARFile(List<String> classFiles) {
         String writtenCommands = "";
         for(int i = 0; i < classFiles.size(); i++) {
             writtenCommands += classFiles.get(i);
             if(i < classFiles.size())
                 writtenCommands += " ";
         }
-        System.out.println(writtenCommands);
         try {
             Process proc = Runtime.getRuntime().exec("jar cf main.jar " + writtenCommands);
             int exitVal = proc.waitFor();
-            System.out.println("Exit Val: " + exitVal);
             if(exitVal == 0)
                 return true;
             else
