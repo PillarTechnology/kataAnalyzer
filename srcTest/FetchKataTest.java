@@ -1,8 +1,6 @@
 import org.junit.Test;
 
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertTrue;
