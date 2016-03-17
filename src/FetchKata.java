@@ -6,22 +6,23 @@ import java.io.*;
 public class FetchKata {
 
     final String workingDir = System.getProperty("user.dir") + "/CandidateKata";
-
-    public String cloneRepository(String url) {
+    public String localDirectory = "";
+    public boolean cloneRepository(String url) {
         cleanup();
         Runtime runtime = Runtime.getRuntime();
         try {
             String command = "git clone " + url + " " + workingDir;
             Process process = runtime.exec(command);
             process.waitFor();
+            localDirectory = workingDir;
+            return true;
         }
         catch(IOException ioe){
-            return ioe.getMessage();
+            return false;
         }
         catch (InterruptedException ie) {
-            return ie.getMessage();
+            return false;
         }
-        return workingDir;
     }
 
     public void cleanup() {

@@ -11,11 +11,25 @@ import static org.junit.Assert.assertTrue;
 public class FetchKataTest {
 
     @Test
+    public void itSucceedsAtCloningARepoWhenGivenAURL() {
+        FetchKata fetchKata = new FetchKata();
+        boolean success = fetchKata.cloneRepository("https://github.com/PillarTechnology/kataAnalyzer");
+        assertTrue(success == true);
+    }
+
+    @Test
     public void itCreatesLocalRepoWhenGivenAURL() {
         FetchKata fetchKata = new FetchKata();
-        String directory = fetchKata.cloneRepository("https://github.com/PillarTechnology/kataAnalyzer");
-        File dir = new File(directory);
+        boolean success = fetchKata.cloneRepository("https://github.com/PillarTechnology/kataAnalyzer");
+        File dir = new File(fetchKata.localDirectory);
         assertTrue(dir.exists());
+    }
+
+    @Test
+    public void itFailsAtCreatingLocalRepoWhenGivenAnInvalidURL() {
+        FetchKata fetchKata = new FetchKata();
+        boolean success = fetchKata.cloneRepository("derp");
+        assertFalse(success == false);
     }
 
     @Test
