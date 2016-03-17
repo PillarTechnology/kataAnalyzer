@@ -7,3 +7,11 @@
 .idea/uiDesigner.xml
 .idea/vcs.xml
 out/
+*.class
+*.jar
+.DS_Store
+logs
+project/project
+project/target
+target
+tmp
