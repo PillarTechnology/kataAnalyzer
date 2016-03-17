@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by stevenroderick on 3/16/16.
  */
-public class CompileTest {
+public class CompileCheckerTest {
 
     @Test
     public void ensureFileIsAJavaFile() {
@@ -20,7 +20,7 @@ public class CompileTest {
     @Test
     public void ensureFileIsAJavaFile2() {
         CompileChecker compileChecker = new CompileChecker();
-        String filePath = System.getProperty("user.dir") + "/srcTest/CompileTest.java";
+        String filePath = System.getProperty("user.dir") + "/srcTest/CompileCheckerTest.java";
         File file = new File(filePath);
         assertTrue(compileChecker.ensureFileIsJava(file));
     }
@@ -74,7 +74,7 @@ public class CompileTest {
     }
 
     @Test
-    public void buildJavass() {
+    public void buildJavaJarFile() {
         CompileChecker compileChecker = new CompileChecker();
         List<String> arguments = new ArrayList<>();
         String directory = System.getProperty("user.dir") + "/src";

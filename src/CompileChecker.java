@@ -8,7 +8,6 @@ import java.util.List;
 
 public class CompileChecker {
 
-
     public boolean ensureFileIsJava(File file) {
         return (file.getName().contains(".java"));
     }
