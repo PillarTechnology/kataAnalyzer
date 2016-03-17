@@ -1,0 +1,5 @@
+GET     /                           controllers.HomeController.index()
+POST    /kata                        controllers.KataController.create()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
