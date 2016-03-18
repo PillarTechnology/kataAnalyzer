@@ -19,11 +19,15 @@ public class SourceFileGatherer implements ISourceFileGatherer {
         this._sourceSorter = sourceSorter;
     }
 
-    public HashMap<SourceType, List<File>> Gather(String sourcePath) {
+    public HashMap<SourceType, List<File>> gather(String sourcePath) {
         ArrayList<File> allFiles = new ArrayList<>();
         searchFoldersRecursively(sourcePath, allFiles);
         List<File> sortableFiles = this._fileFilter.filterFiles(allFiles);
         return this._sourceSorter.sortIntoSourceTypes(sortableFiles);
+    }
+
+    public boolean areAnyTestsAvailableAfterGathering(String sourcePath) {
+        return (gather(sourcePath).get(SourceType.TEST_CODE).size() > 0);
     }
 
     private static void searchFoldersRecursively(String directoryName, ArrayList<File> files) {
