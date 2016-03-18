@@ -1,6 +1,8 @@
 package kataAnalyzer.sourceCompiler;
 
 import java.io.File;
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
@@ -95,5 +97,26 @@ public class CompileCheckerTest {
             canBuildJar = compileChecker.createJARFile(compileChecker.getClassFiles());
         }
         assertTrue(canBuildJar);
+    }
+
+    @Test
+    public void itShouldReturnTrueAfterRunIsCalled() {
+        CompileChecker compileChecker = new CompileChecker();
+        boolean compiled = compileChecker.compileSource(SOURCE_DIRECTORY);
+        assertTrue(compiled == true);
+    }
+
+    @Test
+    public void itShouldFailAtCompileWhenGivenAnInvalidDirectory() {
+        CompileChecker compileChecker = new CompileChecker();
+        boolean compiled = compileChecker.compileSource("invalid");
+        assertTrue(compiled == false);
+    }
+
+    @Test
+    public void itShouldReturnJarPath() {
+        CompileChecker compileChecker = new CompileChecker();
+        boolean compiled = compileChecker.compileSource(SOURCE_DIRECTORY);
+        assertEquals(System.getProperty("user.dir") + "/main.jar", compileChecker.pathForJarFile);
     }
 }
