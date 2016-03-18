@@ -7,6 +7,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 /**
  * Created by stevenroderick on 3/16/16.
@@ -100,7 +101,7 @@ public class CompileCheckerTest {
     }
 
     @Test
-    public void itShouldReturnTrueAfterRunIsCalled() {
+    public void itShouldReturnTrueAfterCompileSourceIsCalledWithADirectory() {
         CompileChecker compileChecker = new CompileChecker();
         boolean compiled = compileChecker.compileSource(SOURCE_DIRECTORY);
         assertTrue(compiled == true);
@@ -118,5 +119,13 @@ public class CompileCheckerTest {
         CompileChecker compileChecker = new CompileChecker();
         boolean compiled = compileChecker.compileSource(SOURCE_DIRECTORY);
         assertEquals(System.getProperty("user.dir") + "/main.jar", compileChecker.pathForJarFile);
+    }
+
+    @Test
+    public void itShouldReturnTrueAfterCompileSourceIsCalledWithAListOfFiles() {
+        CompileChecker compileChecker = new CompileChecker();
+        File folder = new File(SOURCE_DIRECTORY);
+        boolean compiled = compileChecker.compileSource(Arrays.asList(folder.listFiles()));
+        assertTrue(compiled == true);
     }
 }

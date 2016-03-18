@@ -11,20 +11,25 @@ public class CompileChecker {
     public String pathForJarFile = "";
 
     public boolean compileSource(String directory) {
-        List<String> arguments = new ArrayList<>();
         File folder = new File(directory);
         if(folder.isDirectory() == true) {
             ArrayList<File> listOfFiles = new ArrayList<>();
             searchFoldersRecursively(folder.getAbsolutePath(), listOfFiles);
-            for (int i = 0; i < listOfFiles.size(); i++) {
-                if (ensureFileIsJava(listOfFiles.get(i))) {
-                    arguments.add(listOfFiles.get(i).getPath());
-                }
+            return compileSource(listOfFiles);
+        }
+        return false;
+    }
+
+    public boolean compileSource(List<File> listOfFiles) {
+        List<String> arguments = new ArrayList<>();
+        for (int i = 0; i < listOfFiles.size(); i++) {
+            if (ensureFileIsJava(listOfFiles.get(i))) {
+                arguments.add(listOfFiles.get(i).getPath());
             }
-            boolean classFilesCreated = createClassFiles(arguments.toArray(new String[arguments.size()]));
-            if (classFilesCreated == true) {
-                return createJARFile(getClassFiles());
-            }
+        }
+        boolean classFilesCreated = createClassFiles(arguments.toArray(new String[arguments.size()]));
+        if (classFilesCreated == true) {
+            return createJARFile(getClassFiles());
         }
         return false;
     }
