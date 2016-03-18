@@ -1,0 +1,38 @@
+@(kata : Kata)
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <body>
+        @kata.candidateName has submitted a kata! <br><br>
+
+        Candidate name: @kata.candidateName <br>
+        Candidate email: @kata.candidateEmail <br>
+        Kata name: @kata.name <br>
+        Kata url: <a href="@kata.url">@kata.url</a> <br><br>
+
+        Did the kata compile?
+        @if(kata.didCompile){
+            &#128077;
+        } else {
+            &#128078;
+        }
+        <br>
+        Were there tests present?
+        @if(kata.hadTests){
+            &#128077;
+        } else {
+            &#128078;
+        }
+        <br>
+        Did the tests pass?
+        @if(kata.passedTests){
+            &#128077;
+        } else {
+            &#128078;
+        }
+        <br>
+    </body>
+</html>

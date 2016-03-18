@@ -1,3 +1,5 @@
+package kataAnalyzer.testProcessor;
+
 /**
  * Created by jwinters on 3/16/16.
  */

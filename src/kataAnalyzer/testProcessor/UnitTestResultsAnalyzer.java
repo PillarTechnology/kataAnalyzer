@@ -1,3 +1,5 @@
+package kataAnalyzer.testProcessor;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

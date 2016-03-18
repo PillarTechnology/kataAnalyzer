@@ -1,3 +1,5 @@
+package kataAnalyzer.testProcessor;
+
 import org.junit.Before;
 import org.junit.Test;
 import java.util.List;
@@ -11,6 +13,7 @@ public class UnitTestProcessorTest {
 
     UnitTestProcessor testProcessor;
     List<String> testFiles;
+    final String testClassPath = "../../out/test/kataAnalyzer";
 
     @Before
     public void getUnitTestProcessor() {
@@ -23,7 +26,7 @@ public class UnitTestProcessorTest {
 
     @Test
     public void itReturnsFailureWhenNoTestFilesArePassed() {
-        Assert.assertEquals( "Failure", testProcessor.process(testFiles) );
+        Assert.assertEquals( "Failure", testProcessor.process(testFiles, testClassPath) );
     }
 
     @Test
@@ -31,7 +34,7 @@ public class UnitTestProcessorTest {
         testFiles.add("SuccessTests");
         testFiles.add("SuccessTests");
 
-        Assert.assertEquals( "Success", testProcessor.process(testFiles) );
+        Assert.assertEquals( "Success", testProcessor.process(testFiles, testClassPath) );
 
     }
 
@@ -40,6 +43,6 @@ public class UnitTestProcessorTest {
         testFiles.add("FailureTest");
         testFiles.add("SuccessTest");
 
-        Assert.assertEquals( "Failure", testProcessor.process(testFiles) );
+        Assert.assertEquals( "Failure", testProcessor.process(testFiles, testClassPath) );
     }
 }

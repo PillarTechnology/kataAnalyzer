@@ -18,8 +18,6 @@ public class KataController extends Controller {
     public KataController(FormFactory formFactory) {
         this.formFactory = formFactory;
     }
-
-
     public Result create() {
         Form<Kata> form = formFactory.form(Kata.class).bindFromRequest();
         return ok(success.render(form.get()));

@@ -1,3 +1,5 @@
+package kataAnalyzer.sourceCompiler;
+
 import java.io.File;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
@@ -8,6 +10,9 @@ import java.util.List;
  * Created by stevenroderick on 3/16/16.
  */
 public class CompileCheckerTest {
+
+    private final String SOURCE_DIRECTORY = "../../src/kataAnalyzer/sourceCompiler/";
+    private final String SOURCE_TEST_DIRECTORY = "../../srcTest/kataAnalyzer/sourceCompiler/";
 
     @Test
     public void ensureFileIsAJavaFile() {
@@ -20,7 +25,7 @@ public class CompileCheckerTest {
     @Test
     public void ensureFileIsAJavaFile2() {
         CompileChecker compileChecker = new CompileChecker();
-        String filePath = System.getProperty("user.dir") + "/srcTest/CompileCheckerTest.java";
+        String filePath = SOURCE_TEST_DIRECTORY + "CompileCheckerTest.java";
         File file = new File(filePath);
         assertTrue(compileChecker.ensureFileIsJava(file));
     }
@@ -29,7 +34,7 @@ public class CompileCheckerTest {
     public void canUseJavac() {
         CompileChecker compileChecker = new CompileChecker();
         List<String> arguments = new ArrayList<>();
-        String directory = System.getProperty("user.dir") + "/src";
+        String directory = SOURCE_DIRECTORY;
         File folder = new File(directory);
         File[] listOfFiles = folder.listFiles();
         for(int i = 0; i < listOfFiles.length; i++) {
@@ -61,7 +66,7 @@ public class CompileCheckerTest {
             file.delete();
         }
         List<String> arguments = new ArrayList<>();
-        String directory = System.getProperty("user.dir") + "/src";
+        String directory = SOURCE_DIRECTORY;
         File folder = new File(directory);
         File[] listOfFiles = folder.listFiles();
         for(int i = 0; i < listOfFiles.length; i++) {
@@ -77,7 +82,7 @@ public class CompileCheckerTest {
     public void buildJavaJarFile() {
         CompileChecker compileChecker = new CompileChecker();
         List<String> arguments = new ArrayList<>();
-        String directory = System.getProperty("user.dir") + "/src";
+        String directory = SOURCE_DIRECTORY;
         File folder = new File(directory);
         File[] listOfFiles = folder.listFiles();
         for(int i = 0; i < listOfFiles.length; i++) {

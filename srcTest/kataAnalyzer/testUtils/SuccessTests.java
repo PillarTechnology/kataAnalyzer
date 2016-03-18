@@ -1,3 +1,5 @@
+package kataAnalyzer.testUtils;
+
 import org.junit.*;
 
 /**
