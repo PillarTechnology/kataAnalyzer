@@ -12,7 +12,7 @@ import static java.util.Arrays.asList;
 
 public class TestHelper {
 
-    public final static String TEST_FILE_DIR = "testResources/";
+    public final static String TEST_FILE_DIR = "../../testResources/";
 
     @SuppressWarnings("ConstantConditions")
     public static List<File> getAllJavaFilesFromTestDirectory() {
