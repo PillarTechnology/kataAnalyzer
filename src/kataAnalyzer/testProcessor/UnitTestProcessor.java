@@ -10,20 +10,20 @@ public class UnitTestProcessor {
     UnitTestRunner testRunner = new UnitTestRunner();
     UnitTestResultsAnalyzer testResultsAnalyzer = new UnitTestResultsAnalyzer();
 
-    public String process(List<String> testFiles, String path) {
+    public boolean process(List<String> testFiles, String path) {
 
-        String analyzedResults = "Success";
+        boolean unitTestsPassed = true;
 
         if ( testFiles.size() == 0 ) {
-            analyzedResults = "Failure";
+            unitTestsPassed = false;
         }
 
         for (int i = 0; i < testFiles.size(); i++) {
             if ( testResultsAnalyzer.analyzeResults(testRunner.runTests(testFiles.get(i), path)).equals("Failure") ) {
-                analyzedResults = "Failure";
+                unitTestsPassed = false;
             }
         }
 
-        return analyzedResults;
+        return unitTestsPassed;
     }
 }

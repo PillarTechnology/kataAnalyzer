@@ -25,24 +25,24 @@ public class UnitTestProcessorTest {
     }
 
     @Test
-    public void itReturnsFailureWhenNoTestFilesArePassed() {
-        Assert.assertEquals( "Failure", testProcessor.process(testFiles, testClassPath) );
+    public void itReturnsFalseWhenNoTestFilesArePassed() {
+        Assert.assertFalse( testProcessor.process(testFiles, testClassPath) );
     }
 
     @Test
-    public void itReturnsSuccessWhenAllTestFilesPass() {
+    public void itReturnsTrueWhenAllTestFilesPass() {
         testFiles.add("SuccessTests");
         testFiles.add("SuccessTests");
 
-        Assert.assertEquals( "Success", testProcessor.process(testFiles, testClassPath) );
+        Assert.assertTrue( testProcessor.process(testFiles, testClassPath) );
 
     }
 
     @Test
-    public void itReturnsFailureWhenAnyTestFileFails() {
+    public void itReturnsFalseWhenAnyTestFileFails() {
         testFiles.add("FailureTest");
         testFiles.add("SuccessTest");
 
-        Assert.assertEquals( "Failure", testProcessor.process(testFiles, testClassPath) );
+        Assert.assertFalse( testProcessor.process(testFiles, testClassPath) );
     }
 }
