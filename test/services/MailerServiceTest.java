@@ -23,11 +23,17 @@ public class MailerServiceTest {
         mockedClient = mock(MailerClient.class); 
         mailer = new MailerService(mockedEmail, mockedClient);
         kata = new Kata();
+        kata.candidateName = "Jane Doe";
+        kata.recruiterEmail = "jdoe@pillartechnology.com";
+        kata.url = "http://thing.com";
+        kata.candidateEmail = "zack@pillar.com";
+        kata.didCompile = false;
+        kata.hadTests = false;
+        kata.passedTests = false;
     }
 
     @Test
     public void itShouldSetTheEmailSubject() {
-        kata.candidateName = "Jane Doe";
         mailer.send(kata);
         verify(mockedEmail).setSubject("Generated Kata Results: Jane Doe");
 
@@ -38,7 +44,6 @@ public class MailerServiceTest {
 
     @Test
     public void itShouldSetTheRecipient() {
-        kata.recruiterEmail = "jdoe@pillartechnology.com";
         mailer.send(kata);
         verify(mockedEmail).addTo("jdoe@pillartechnology.com");
     }
