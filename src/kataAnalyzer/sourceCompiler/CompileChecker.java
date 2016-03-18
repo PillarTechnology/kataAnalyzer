@@ -8,8 +8,34 @@ import java.util.List;
 
 public class CompileChecker {
 
+    public String pathForJarFile = "";
+
+    public boolean compileSource(String directory) {
+        File folder = new File(directory);
+        if(folder.isDirectory() == true) {
+            ArrayList<File> listOfFiles = new ArrayList<>();
+            searchFoldersRecursively(folder.getAbsolutePath(), listOfFiles);
+            return compileSource(listOfFiles);
+        }
+        return false;
+    }
+
+    public boolean compileSource(List<File> listOfFiles) {
+        List<String> arguments = new ArrayList<>();
+        for (int i = 0; i < listOfFiles.size(); i++) {
+            if (ensureFileIsJava(listOfFiles.get(i))) {
+                arguments.add(listOfFiles.get(i).getPath());
+            }
+        }
+        boolean classFilesCreated = createClassFiles(arguments.toArray(new String[arguments.size()]));
+        if (classFilesCreated == true) {
+            return createJARFile(getClassFiles());
+        }
+        return false;
+    }
+
     public boolean ensureFileIsJava(File file) {
-        return (file.getName().contains(".java"));
+        return (file.getName().endsWith(".java"));
     }
 
     public boolean createClassFiles(String[] commands) {
@@ -72,10 +98,12 @@ public class CompileChecker {
         try {
             Process proc = Runtime.getRuntime().exec("jar cf main.jar " + writtenCommands);
             int exitVal = proc.waitFor();
-            if(exitVal == 0)
+            if(exitVal == 0) {
+                pathForJarFile = System.getProperty("user.dir") + "/main.jar";
                 return true;
-            else
+            } else {
                 return false;
+            }
         } catch (IOException e) {
             e.printStackTrace();
             return false;
