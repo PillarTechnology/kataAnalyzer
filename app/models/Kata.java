@@ -7,4 +7,7 @@ public class Kata {
     public String name;
     public String url;
     public String language = "Java";
+    public Boolean didCompile;
+    public Boolean hadTests;
+    public Boolean passedTests;
 }
