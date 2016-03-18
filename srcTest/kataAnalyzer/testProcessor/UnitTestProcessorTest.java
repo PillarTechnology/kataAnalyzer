@@ -2,6 +2,8 @@ package kataAnalyzer.testProcessor;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.File;
 import java.util.List;
 import java.util.ArrayList;
 import org.junit.Assert;
@@ -12,8 +14,10 @@ import org.junit.Assert;
 public class UnitTestProcessorTest {
 
     UnitTestProcessor testProcessor;
-    List<String> testFiles;
+    List<File> testFiles;
     final String testClassPath = "../../out/test/kataAnalyzer";
+    File successFile = new File(testClassPath + "/SuccessTests.class");
+    File failFile = new File(testClassPath + "/FailureTests.class");
 
     @Before
     public void getUnitTestProcessor() {
@@ -21,7 +25,7 @@ public class UnitTestProcessorTest {
     }
     @Before
     public void getTestFilesList() {
-        testFiles = new ArrayList<String>();
+        testFiles = new ArrayList<>();
     }
 
     @Test
@@ -31,8 +35,8 @@ public class UnitTestProcessorTest {
 
     @Test
     public void itReturnsTrueWhenAllTestFilesPass() {
-        testFiles.add("SuccessTests");
-        testFiles.add("SuccessTests");
+        testFiles.add(successFile);
+        testFiles.add(successFile);
 
         Assert.assertTrue( testProcessor.process(testFiles, testClassPath) );
 
@@ -40,8 +44,8 @@ public class UnitTestProcessorTest {
 
     @Test
     public void itReturnsFalseWhenAnyTestFileFails() {
-        testFiles.add("FailureTest");
-        testFiles.add("SuccessTest");
+        testFiles.add(failFile);
+        testFiles.add(successFile);
 
         Assert.assertFalse( testProcessor.process(testFiles, testClassPath) );
     }
