@@ -1,12 +1,12 @@
 package controllers;
 
-import models.Kata;
+//import models.Kata;
 
-import play.data.Form;
+//import play.data.Form;
 import play.data.FormFactory;
-import play.mvc.Result;
+//import play.mvc.Result;
 import play.mvc.*;
-import views.html.success;
+//import views.html.success;
 
 import javax.inject.Inject;
 
@@ -20,9 +20,9 @@ public class KataController extends Controller {
     }
 
 
-    public Result create() {
-        Form<Kata> form = formFactory.form(Kata.class).bindFromRequest();
-        return ok(success.render(form.get()));
-    }
+//    public Result create() {
+//        Form<Kata> form = formFactory.form(Kata.class).bindFromRequest();
+//        return ok(success.render(form.get()));
+//    }
 
 }
