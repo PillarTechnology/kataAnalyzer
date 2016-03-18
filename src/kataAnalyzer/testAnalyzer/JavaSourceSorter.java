@@ -32,5 +32,4 @@ public class JavaSourceSorter implements ISourceSorter {
         sortedSource.put(SourceType.NOT_TEST_CODE, notTestCodeFiles);
         return sortedSource;
     }
-
 }
