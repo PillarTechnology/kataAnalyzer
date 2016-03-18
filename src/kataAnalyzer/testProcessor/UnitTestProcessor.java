@@ -1,5 +1,9 @@
 package kataAnalyzer.testProcessor;
 
+import org.apache.commons.io.FilenameUtils;
+
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,7 +14,12 @@ public class UnitTestProcessor {
     UnitTestRunner testRunner = new UnitTestRunner();
     UnitTestResultsAnalyzer testResultsAnalyzer = new UnitTestResultsAnalyzer();
 
-    public boolean process(List<String> testFiles, String path) {
+    public boolean process(List<File> fileList, String path) {
+        List<String> testFiles = new ArrayList<>();
+
+        for ( int i = 0; i < fileList.size(); i++) {
+            testFiles.add(FilenameUtils.removeExtension(fileList.get(i).getName()));
+        }
 
         boolean unitTestsPassed = true;
 
