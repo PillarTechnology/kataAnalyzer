@@ -12,6 +12,6 @@ public class UnitTestRunnerTest {
     public void itRunsTestsAndReturnsAStringOfResults() {
         UnitTestRunner testRunner = new UnitTestRunner();
 
-        Assert.assertTrue(testRunner.runTests("SuccessTests") instanceof String);
+        Assert.assertTrue(testRunner.runTests("SuccessTests", "../../out/test/kataAnalyzer") instanceof String);
     }
 }
