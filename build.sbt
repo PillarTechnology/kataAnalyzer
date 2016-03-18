@@ -10,7 +10,8 @@ libraryDependencies ++= Seq(
   javaJdbc,
   cache,
   javaWs,
-  "org.mockito" % "mockito-core" % "1.9.5" % "test"
+  "org.mockito" % "mockito-core" % "1.9.5" % "test",
+  "com.typesafe.play" %% "play-mailer" % "4.0.0-M1"
 )
 
 herokuAppName in Compile := "fathomless-stream-54754"
